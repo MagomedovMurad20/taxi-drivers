@@ -11,6 +11,9 @@
                         <a href="{{ url('/user/create') }}" class="btn btn-success btn-sm" title="Add New User">
                             Добавить
                         </a>
+                        <a href="{{ url('/') }}" class="btn btn-success btn-sm" title="Add New User">
+                            Назад
+                        </a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
