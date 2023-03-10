@@ -55,6 +55,6 @@ class CarController extends Controller
     public function destroy($id)
     {
         Car::destroy($id);
-        return redirect('cars.car')->with('flash_message', 'Car deleted!');
+        return redirect('car')->with('flash_message', 'Car deleted!');
     }
 }
