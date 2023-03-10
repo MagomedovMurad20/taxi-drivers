@@ -38,7 +38,7 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
-        return view('cars.edit');
+        return view('cars.edit', compact('car'));
     }
 
 
@@ -46,7 +46,9 @@ class CarController extends Controller
     {
         $cars = Car::find($id);
         $cars->model = $request->model;
-        return redirect('cars.car')->with('flash_message', 'Car Updated!');
+        $cars->save();
+
+        return redirect('car')->with('flash_message', 'Car Updated!');
     }
 
 
