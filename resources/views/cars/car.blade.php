@@ -2,7 +2,7 @@
 @section('content')
   
 <div class="card" style="margin:20px;">
-  <div class="card-header">Car Page</div>
+  <div class="card-header">Страница автомобилия</div>
   <div class="card-body">
         <div class="card-body">
         <h5 class="card-title">ID : {{ $car->id }}</h5>
