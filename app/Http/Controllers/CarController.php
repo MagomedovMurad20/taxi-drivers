@@ -7,79 +7,50 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $cars = Car::all();
+        return view('cars.index', compact('cars'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('cars.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $cars = new Car;
+        $cars->model = $request->model;
+        return back()->with('flash_message', 'Car Addedd!');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Car  $car
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Car $car)
+
+    public function show($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.car');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Car  $car
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Car $car)
+    public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('cars.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Car  $car
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Car $car)
+
+    public function update(Request $request, $id)
     {
-        //
+        $cars = Car::find($id);
+        $cars->model = $request->model;
+        return back()->with('flash_message', 'Car Updated!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Car  $car
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Car $car)
+
+    public function destroy($id)
     {
-        //
+        Car::destroy($id);
+        return redirect('cars.index')->with('flash_message', 'Car deleted!');
     }
 }
