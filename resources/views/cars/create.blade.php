@@ -5,7 +5,7 @@
   <div class="card-header">Create New cars</div>
   <div class="card-body">
        
-      <form action="{{ url('car') }}" method="POST">
+      <form action="{{ route('car.store') }}" method="POST">
         @csrf
         <label>Model</label></br>
         <input type="text" name="model" id="model" class="form-control"></br>

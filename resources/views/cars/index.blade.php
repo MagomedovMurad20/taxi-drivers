@@ -26,7 +26,7 @@
                                 @foreach($cars as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->model }}</td>
   
                                         <td>
                                             <a href="{{ url('/car/' . $item->id) }}" title="View car"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>

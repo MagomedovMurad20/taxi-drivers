@@ -23,14 +23,16 @@ class CarController extends Controller
     {
         $cars = new Car;
         $cars->model = $request->model;
-        return redirect('cars.car')->with('flash_message', 'Car Addedd!');
+        $cars->save();
+
+        return redirect('car')->with('flash_message', 'Car Addedd!');
     }
 
 
     public function show($id)
     {
         $car = Car::find($id);
-        return view('cars.car');
+        return view('cars.car', compact('car'));
     }
 
     public function edit($id)
