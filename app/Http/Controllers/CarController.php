@@ -23,7 +23,7 @@ class CarController extends Controller
     {
         $cars = new Car;
         $cars->model = $request->model;
-        return back()->with('flash_message', 'Car Addedd!');
+        return redirect('cars.car')->with('flash_message', 'Car Addedd!');
     }
 
 
@@ -44,13 +44,13 @@ class CarController extends Controller
     {
         $cars = Car::find($id);
         $cars->model = $request->model;
-        return back()->with('flash_message', 'Car Updated!');
+        return redirect('cars.car')->with('flash_message', 'Car Updated!');
     }
 
 
     public function destroy($id)
     {
         Car::destroy($id);
-        return redirect('cars.index')->with('flash_message', 'Car deleted!');
+        return redirect('cars.car')->with('flash_message', 'Car deleted!');
     }
 }
