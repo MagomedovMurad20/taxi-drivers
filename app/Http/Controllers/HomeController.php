@@ -2,20 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Home;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $users = User::all();
+        $cars = Car::all();
+        return view('welcome', compact(['users', 'cars']));
     }
 
     /**
