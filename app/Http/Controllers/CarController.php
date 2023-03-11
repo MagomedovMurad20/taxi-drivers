@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Car;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -38,7 +39,8 @@ class CarController extends Controller
     public function edit($id)
     {
         $car = Car::find($id);
-        return view('cars.edit', compact('car'));
+        $users = User::all();
+        return view('cars.edit', compact(['car', 'users']));
     }
 
 
@@ -46,6 +48,7 @@ class CarController extends Controller
     {
         $cars = Car::find($id);
         $cars->model = $request->model;
+        $cars->user_id = $request->user_id;
         $cars->save();
 
         return redirect('car')->with('flash_message', 'Car Updated!');

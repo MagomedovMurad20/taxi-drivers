@@ -3,15 +3,16 @@
     <div class="container">
         <div class="row" style="margin:20px;">
             <div class="card">
-                <h2>Админ панель</h2>
-                <a href="{{ url('/user') }}" class="btn btn-danger btn-sm" title="Перейти">
+                <h2 style="margin:20px; margin-left:15em;">Админ панель</h2>
+                <a href="{{ url('/user') }}" class="btn btn-danger " title="Перейти">
                     Водители
                 </a>
                 </br>
-                <a href="{{ url('/car') }}" class="btn btn-danger btn-sm" title="Перейти">
+                <a href="{{ url('/car') }}" class="btn btn-danger " title="Перейти">
                     Автомобили
                 </a>
             </div>
+            <h2 style="margin:20px; margin-left:15em;">Сейчас за рулем</h2>
 
             <div class="table-responsive">
                 <table class="table">
@@ -52,6 +53,10 @@
                     </tbody>
                 </table>
             </div>
+            <h2 style="margin:20px; margin-left:15em;">Админ панель</h2>
+            <a href="{{ url('/car/edit') }}" class="btn btn-danger " title="Перейти">
+                Закрепить автомобиль за водителем </a>
+            </br>
         </div>
     </div>
 @endsection
