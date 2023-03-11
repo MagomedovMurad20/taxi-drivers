@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
             $table->string('model');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->boolean('busy')->default(false);
             $table->timestamps();
         });
