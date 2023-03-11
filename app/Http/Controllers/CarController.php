@@ -60,4 +60,27 @@ class CarController extends Controller
         Car::destroy($id);
         return redirect('car')->with('flash_message', 'Car deleted!');
     }
+
+    public function carDriverEdit($id)
+    {
+        $car = Car::find($id);
+        $users = User::whereNull('busy')->get();
+        return view('cars.car_driver_edit', compact(['car', 'users']));
+    }
+
+    public function carDiverUpdate(Request $request, $id)
+    {
+        $cars = Car::find($id);
+        $cars->user_id = $request->user_id;
+        $cars->save();
+
+        return redirect('car')->with('flash_message', 'Driver Updated!');
+    }
+
+    public function carDriverDestroy($id)
+    {
+        $car = Car::find($id);
+        $car->destroy('user_id');
+        return back()->with('flash_message', 'Driver deleted!');
+    }
 }

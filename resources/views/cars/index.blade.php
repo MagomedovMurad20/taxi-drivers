@@ -38,6 +38,13 @@
                                                 <a href="{{ url('/car/' . $item->id . '/edit') }}" title="Edit car"><button
                                                         class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
                                                             aria-hidden="true"></i> Изменить</button></a>
+                                                @if ($item->user_id == null)
+                                                    <a href="{{ url('/car_driver/' . $item->id . '/edit') }}"
+                                                        title="Edit car"><button class="btn btn-primary btn-sm"><i
+                                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            Назначить
+                                                            водителя</button></a>
+                                                @endif
 
                                                 <form method="POST" action="{{ url('/car' . '/' . $item->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">

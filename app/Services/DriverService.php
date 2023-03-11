@@ -4,16 +4,34 @@ namespace App\Services;
 
 use App\Models\Car;
 use App\Models\User;
+use Illuminate\Http\Request;
 
 class DriverService
 {
-    public function getFreeCars()
+    public static function getFreeCars()
     {
-        $cars = Car::whereNull('user_id')->get();
+        return Car::whereNull('user_id')->get();
+    }
+    public static function getFreeUsers()
+    {
+        return User::where('busy', '=', 0)->get();
     }
 
-    public function getFreeUsers()
+
+
+    public function carDriverEdit($id)
     {
-        $users = User::whereNull('car_id')->get();
+        $car = Car::find($id);
+        $users = User::whereNull('busy')->get();
+        return view('cars.car_driver_edit', compact(['car', 'users']));
+    }
+
+    public function carDiverUpdate(Request $request, $id)
+    {
+        $cars = Car::find($id);
+        $cars->user_id = $request->user_id;
+        $cars->save();
+
+        return redirect('car')->with('flash_message', 'Driver Updated!');
     }
 }

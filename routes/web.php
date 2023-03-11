@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get("/", [HomeController::class, 'index']);
+Route::get("/car_driver/{car}/edit", [CarController::class, 'carDriverEdit']);
+Route::post("/car_driver/{car}/edit", [CarController::class, 'carDriverUpdate'])->name('car_driver.update');
+Route::post("/car_driver/{car}/destroy", [CarController::class, 'carDriverDestroy'])->name('car_driver.destroy');
+
 Route::resource("/car", CarController::class);
 Route::resource("/user", UserController::class);
