@@ -9,7 +9,11 @@ class DriverService
 {
     public function getFreeCars()
     {
-        $users = Car::all();
-        $users->where('user_id', '=', null);
+        $cars = Car::whereNull('user_id')->get();
+    }
+
+    public function getFreeUsers()
+    {
+        $users = User::whereNull('car_id')->get();
     }
 }
