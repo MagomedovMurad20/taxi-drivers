@@ -50,6 +50,11 @@
                                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             Назначить
                                                             водителя</button></a>
+                                                @else
+                                                    <a href="{{ url('/car' . '/' . $car->id . '/edit') }}"
+                                                        title="Edit car"><button class="btn btn-primary btn-sm"><i
+                                                                class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                            Удалить водителя</button></a>
                                                 @endif
 
                                                 <form method="POST" action="{{ url('/car' . '/' . $car->id) }}"
