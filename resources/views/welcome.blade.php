@@ -61,7 +61,7 @@
             </div>
             <h2 style="margin:20px; margin-left:15em;">Автомобили</h2>
 
-            <div class="table-responcive">
+            <div class="table-responsive">
                 <a href="{{ url('/car/create') }}" class="btn btn-success btn-sm" title="Add New Car">
                     Добавить автомобиль
                 </a>
@@ -105,8 +105,8 @@
                                                     aria-hidden="true"></i>
                                                 Удалить водителя</button></a>
                                     @endif
-                                    <form method="POST" action="{{ url('/car' . '/' . $car->id) . '/destroy' }}"
-                                        accept-charset="UTF-8" style="display:inline">
+                                    <form method="POST" action="{{ url('/car' . '/' . $car->id) }}" accept-charset="UTF-8"
+                                        style="display:inline">
                                         {{ method_field('DELETE') }}
                                         {{ csrf_field() }}
                                         <button type="submit" class="btn btn-danger btn-sm" title="Delete car"
