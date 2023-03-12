@@ -15,11 +15,12 @@
                     <label>Закрепить за водителем</label></br>
 
                     <select class="form-control" name="user_id">
-                        {{-- TODO: СДЕЛАТЬ ЧТОБЫ НЕ ВЫБИРАЛСЯ УЖЕ СУЩЕСТВУЮЩИЙ АЙДИ --}}
                         @foreach ($users as $user)
-                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            {{-- TODO: СДЕЛАТЬ ЧТОБЫ НЕ ВЫБИРАЛСЯ УЖЕ ЗАНЯТЫЙ ВОДИТЕЛЬ --}}
+                            @if ($user->car === null)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endif
                         @endforeach
-
                     </select></br>
                     <input type="submit" value="Изменить" class="btn btn-success"></br>
                 @else
