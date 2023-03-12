@@ -8,8 +8,11 @@
                 <h5 class="card-title">ID : {{ $car->id }}</h5>
                 @if (isset($car->model))
                     <p class="card-text">Модель : {{ $car->model }}</p>
+                    <class="card-text">{{ $car->user->name }}</p>
                 @endif
                 <p class="card-text">Дата : {{ $car->created_at }}</p>
+
+
             </div>
             </hr>
         </div>

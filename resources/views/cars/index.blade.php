@@ -12,7 +12,7 @@
                             Добавить
                         </a>
                         <a href="{{ url('/') }}" class="btn btn-success btn-sm" title="Add New User">
-                            Назад
+                            На главную
                         </a>
                         <br />
                         <br />
@@ -26,27 +26,33 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($cars as $item)
+                                    @foreach ($cars as $car)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td>{{ $item->model }}</td>
+                                            <td>{{ $car->model }}</td>
+                                            @if (isset($car->user->name))
+                                                <td>{{ $car->user->name }}</td>
+                                            @else
+                                                <td></td>
+                                            @endif
 
                                             <td>
-                                                <a href="{{ url('/car/' . $item->id) }}" title="View car"><button
+                                                <a href="{{ url('/car' . '/' . $car->id) }}" title="View car"><button
                                                         class="btn btn-info btn-sm"><i class="fa fa-eye"
                                                             aria-hidden="true"></i> Посмотреть</button></a>
-                                                <a href="{{ url('/car/' . $item->id . '/edit') }}" title="Edit car"><button
-                                                        class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o"
-                                                            aria-hidden="true"></i> Изменить</button></a>
-                                                @if ($item->user_id == null)
-                                                    <a href="{{ url('/car_driver/' . $item->id . '/edit') }}"
+                                                <a href="{{ url('/car' . '/' . $car->id . '/edit') }}"
+                                                    title="Edit car"><button class="btn btn-primary btn-sm"><i
+                                                            class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                        Изменить</button></a>
+                                                @if ($car->user_id == null)
+                                                    <a href="{{ '/car' . '/' . $car->id . '/edit' }}"
                                                         title="Edit car"><button class="btn btn-primary btn-sm"><i
                                                                 class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             Назначить
                                                             водителя</button></a>
                                                 @endif
 
-                                                <form method="POST" action="{{ url('/car' . '/' . $item->id) }}"
+                                                <form method="POST" action="{{ url('/car' . '/' . $car->id) }}"
                                                     accept-charset="UTF-8" style="display:inline">
                                                     {{ method_field('DELETE') }}
                                                     {{ csrf_field() }}

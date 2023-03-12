@@ -26,7 +26,7 @@ class UserController extends Controller
         $user = new User;
         $user->name = $request->name;
         $user->save();
-        return redirect('user')->with('flash_message', 'User added');
+        return redirect()->route('user.index')->with('flash_message', 'User added');
     }
 
     public function show($id)
@@ -36,24 +36,22 @@ class UserController extends Controller
     }
 
 
-    public function edit($id)
+    public function edit(User $user)
     {
-        $user = User::find($id);
         return view('users.edit', compact('user'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        $user = User::find($id);
         $user->name = $request->name;
         $user->save();
-        return view('users.user')->with('flash_message', 'User Updated!');
+        return view('users.user', compact('user'))->with('flash_message', 'User Updated!');
     }
 
 
     public function destroy($id)
     {
         User::destroy($id);
-        return view('user')->with('flash_message', 'User Deleted!');
+        return back()->with('flash_message', 'User Deleted!');
     }
 }

@@ -30,15 +30,13 @@ class CarController extends Controller
     }
 
 
-    public function show($id)
+    public function show(Car $car)
     {
-        $car = Car::find($id);
         return view('cars.car', compact('car'));
     }
 
-    public function edit($id)
+    public function edit(Car $car)
     {
-        $car = Car::find($id);
         $users = User::all();
         return view('cars.edit', compact(['car', 'users']));
     }

@@ -11,16 +11,24 @@
                 <input type="hidden" name="id" id="id" value="{{ $car->id }}" id="id" />
                 <label>Модель</label></br>
                 <input type="text" name="model" id="model" value="{{ $car->model }}" class="form-control"></br>
-                <label>Закрепить за водителем</label></br>
+                @if ($car->user_id == null)
+                    <label>Закрепить за водителем</label></br>
 
-                <select class="form-control" name="user_id">
-                    {{-- TODO: СДЕЛАТЬ ЧТОБЫ НЕ ВЫБИРАЛСЯ УЖЕ СУЩЕСТВУЮЩИЙ АЙДИ --}}
-                    @foreach ($users as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
-                    @endforeach
+                    <select class="form-control" name="user_id">
+                        {{-- TODO: СДЕЛАТЬ ЧТОБЫ НЕ ВЫБИРАЛСЯ УЖЕ СУЩЕСТВУЮЩИЙ АЙДИ --}}
+                        @foreach ($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
 
-                </select></br>
-                <input type="submit" value="Изменить" class="btn btn-success"></br>
+                    </select></br>
+                    <input type="submit" value="Изменить" class="btn btn-success"></br>
+                @else
+                    <p> Водитель {{ $car->user->name }}</p>
+                    <input type="submit" value="Удалить водителя" class="btn btn-success"></br>
+
+                @endif
+
+
             </form>
 
         </div>
