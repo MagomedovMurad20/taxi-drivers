@@ -16,7 +16,6 @@
 
                     <select class="form-control" name="user_id">
                         @foreach ($users as $user)
-                            {{-- TODO: СДЕЛАТЬ ЧТОБЫ НЕ ВЫБИРАЛСЯ УЖЕ ЗАНЯТЫЙ ВОДИТЕЛЬ --}}
                             @if ($user->car === null)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endif
