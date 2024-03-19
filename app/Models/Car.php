@@ -13,6 +13,7 @@ class Car extends Model
     protected $fillable = [
         'model',
         'busy',
+        'numbers',
     ];
 
     public function user()

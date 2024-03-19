@@ -24,6 +24,7 @@ class CarController extends Controller
     {
         $cars = new Car;
         $cars->model = $request->model;
+        $cars->numbers = $request->numbers;
         $cars->save();
 
         return redirect('car')->with('flash_message', 'Car Addedd!');

@@ -9,7 +9,7 @@
         <label>Имя</label></br>
         <input type="text" name="name" id="name" class="form-control"></br>
         <label>Фамилия</label></br>
-        <input type="text" name="name" id="name" class="form-control"></br>
+        <input type="text" name="lastname" id="lastname" class="form-control"></br>
         <input type="submit" value="Добавить" class="btn btn-success"></br>
     </form>
   </div>
