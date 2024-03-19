@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 
 class CarController extends Controller
 {
-
     public function index()
     {
         $cars = Car::all();
@@ -29,8 +28,6 @@ class CarController extends Controller
 
         return redirect('car')->with('flash_message', 'Car Addedd!');
     }
-
-
     public function show(Car $car)
     {
         return view('cars.car', compact('car'));

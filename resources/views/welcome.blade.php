@@ -40,6 +40,11 @@
                                 @else
                                     <td></td>
                                 @endif
+                                @if (isset($user->car['numbers']))
+                                    <td>{{ $user->car['numbers'] }}</td>
+                                @else
+                                    <td></td>
+                                @endif
 
                                 <td>
                                     <a href="{{ url('/user' . '/' . $user->id) }}" title="View user"><button
