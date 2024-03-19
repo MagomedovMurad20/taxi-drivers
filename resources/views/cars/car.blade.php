@@ -7,6 +7,7 @@
             <div class="card-body">
                 <h5 class="card-title">ID : {{ $car->id }}</h5>
                 <p class="card-text">Модель : {{ $car->model }}</p>
+                <p class="card-text">Номера : {{ $car->numbers }}</p>
                 @if (isset($car->user->name))
                     <class="card-text">{{ $car->user->name }}</p>
                 @endif
