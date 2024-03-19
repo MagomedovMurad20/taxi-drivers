@@ -22,6 +22,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Имя</th>
+                                        <th>Фамилия</th>
                                         <th>Действия</th>
                                     </tr>
                                 </thead>
@@ -30,6 +31,7 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $user->name }}</td>
+                                            <td>{{ $user->lastname }}</td>
 
                                             <td>
                                                 <a href="{{ url('/user/' . $user->id) }}" title="View user"><button

@@ -25,6 +25,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user->name = $request->name;
+        $user->lastname = $request->lastname;
         $user->save();
         return redirect()->route('user.index')->with('flash_message', 'User added');
     }

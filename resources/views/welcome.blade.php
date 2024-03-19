@@ -23,6 +23,7 @@
                         <tr>
                             <th>#</th>
                             <th>Имя</th>
+                            <th>Имя</th>
                             <th>Автомобиль</th>
                             <th>Действия</th>
                         </tr>
@@ -32,6 +33,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $user->name }}</td>
+                                <td>{{ $user->lastname }}</td>
                                 @if (isset($user->car['model']))
                                     <td>{{ $user->car['model'] }}</td>
                                 @else
