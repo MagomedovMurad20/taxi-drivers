@@ -7,8 +7,9 @@
             <div class="card-body">
                 <h5 class="card-title">ID : {{ $user->id }}</h5>
                 <p class="card-text">Имя : {{ $user->name }}</p>
+                <p class="card-text">Имя : {{ $user->lastname }}</p>
                 @if (isset($user->car['model']))
-                    <p class="card-text">Имя : {{ $user->car['model'] }}</p>
+                    <p class="card-text">Назначено авто : {{ $user->car['model'] }}</p>
                 @endif
                 <p class="card-text">Дата : {{ $user->created_at }}</p>
             </div>
